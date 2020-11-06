@@ -31,7 +31,7 @@ export class Tab1Page {
   
   constructor(private toastCtrl: ToastController, public alertController: AlertController) {};
 
-  /*Function to remove items from list*/
+  /*Function to remove items from list*/ 
   async removeItem(item, index) {
     console.log('Removed ' + item.name + '.');
     /*Declaring toast then present to screen*/
