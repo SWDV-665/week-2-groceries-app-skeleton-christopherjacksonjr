@@ -3,99 +3,37 @@
   <ion-toolbar>
     <!--Title-->
     <ion-title>
-      Grocery
+      {{title}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <!--Content-->
 <ion-content padding>
+
   <!--Ionic List Component-->
   <ion-list>
-    <!--Item Sliding Item - Milk-->
-    <ion-item-sliding>
-      <!--Ionic Item-->
+    <!--Populates list from items array-->
+    <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
-        <!--Item Name-->
-        <h2>Milk</h2>
-        <!--Item Quantity-->
-        <p>1</p>
+        <ion-text>
+            <h2>{{item.name}}</h2>
+            <p>{{item.quantity}}</p>
+        </ion-text>
       </ion-item>
-      <!--Item Sliding Option-->
       <ion-item-options>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="trash"></ion-icon>
-          Done
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <!--Item Sliding Item - Bread-->
-    <ion-item-sliding>
-      <!--Ionic Item-->
-      <ion-item>
-        <!--Item Name-->
-        <h2>Bread</h2>
-        <!--Item Quantity-->
-        <p>2</p>
-      </ion-item>
-      <!--Item Sliding Option-->
-      <ion-item-options>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="trash"></ion-icon>
-          Done
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <!--Item Sliding Item - Eggs-->
-    <ion-item-sliding>
-      <!--Ionic Item-->
-      <ion-item>
-        <!--Item Name-->
-        <h2>Eggs</h2>
-        <!--Item Quantity-->
-        <p>12</p>
-      </ion-item>
-      <!--Item Sliding Option-->
-      <ion-item-options>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="trash"></ion-icon>
-          Done
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <!--Item Sliding Item - Butter-->
-    <ion-item-sliding>
-      <!--Ionic Item-->
-      <ion-item>
-        <!--Item Name-->
-        <h2>Butter</h2>
-        <!--Item Quantity-->
-        <p>5</p>
-      </ion-item>
-      <!--Item Sliding Option-->
-      <ion-item-options>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="trash"></ion-icon>
-          Done
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <!--Item Sliding Item - Cheese-->
-    <ion-item-sliding>
-      <!--Ionic Item-->
-      <ion-item>
-        <!--Item Name-->
-        <h2>Cheese</h2>
-        <!--Item Quantity-->
-        <p>3</p>
-      </ion-item>
-      <!--Item Sliding Option-->
-      <ion-item-options>
-        <button ion-button color="secondary" icon-start>
+        <!--Button click function to remove item-->
+        <button (click)="removeItem(item, i)" ion-button color="secondary" icon-start>
           <ion-icon name="trash"></ion-icon>
           Done
         </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+  <!--Button to add items to list-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <!--Button click function to add item-->
+      <ion-fab-button (click)="addItem()" ><ion-icon name="add"></ion-icon></ion-fab-button>
+  </ion-fab>  
 </ion-content>
